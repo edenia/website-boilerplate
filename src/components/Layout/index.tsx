@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
+
 import Header from './Header'
 import Container from './Container'
 import Footer from './Footer'
-
 import Styles from './styles'
 
 const useStyles = Styles
@@ -26,11 +26,13 @@ const Layout: React.FC<LayoutProps> = ({
   const scrolling = () => {
     const currentScroll = wrapper?.current?.scrollTop || 0
 
-    if (currentScroll > lastScroll) {
-      setShowNavbar(false)
-    } else {
-      setShowNavbar(true)
-    }
+    // if (currentScroll > lastScroll) {
+    //   setShowNavbar(false)
+    // } else {
+    //   setShowNavbar(true)
+    // }
+
+    setShowNavbar(!!(currentScroll > lastScroll))
     setLastScroll(currentScroll)
   }
 

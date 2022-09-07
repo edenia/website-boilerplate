@@ -3,11 +3,11 @@ import { NextComponentType } from 'next'
 import { AppProps, AppContext, AppInitialProps } from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
-import { ThemeProvider } from '@material-ui/core/styles'
-import { CssBaseline } from '@material-ui/core'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import { DefaultSeo } from 'next-seo'
-import { LocalizationProvider } from '@material-ui/pickers'
-import DateFnsAdapter from '@material-ui/pickers/adapter/date-fns'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'
 
@@ -90,7 +90,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
         theme={isDarkTheme ? themeConfig.darkTheme : themeConfig.lightTheme}
       >
         <LocalizationProvider
-          dateAdapter={DateFnsAdapter}
+          dateAdapter={AdapterDateFns}
           locale={i18nConfig?.dateFnsLocaleMap?.[currentLocale]}
         >
           <CssBaseline />

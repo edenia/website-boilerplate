@@ -11,6 +11,9 @@ const Home: NextPage = () => {
   return (
     <>
       <NextSeo title={t('homeMetaTitle')} />
+      {/* remove this div, it just for use view height */}
+      <div style={{ height: '100vh' }} />
+      {/* remove this div */}
     </>
   )
 }

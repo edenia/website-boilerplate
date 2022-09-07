@@ -1,9 +1,9 @@
 import React from 'react'
-import { Typography, Box, Grid, Link } from '@material-ui/core'
+import { Typography, Box, Grid, Link } from '@mui/material'
 import {
   YouTube as YouTubeIcon,
   LinkedIn as LinkedInIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 import { useTranslation } from 'next-i18next'
 
 import Styles from './styles'

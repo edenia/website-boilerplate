@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import {
   createTheme,
   ThemeOptions,
   responsiveFontSizes
-} from '@material-ui/core/styles'
+} from '@mui/material/styles'
+import { Theme } from '@mui/material'
+
+declare module '@mui/styles/defaultTheme' {
+  interface DefaultTheme extends Theme {}
+}
 
 const palette: ThemeOptions['palette'] = {
   primary: {
@@ -53,7 +59,7 @@ const typography: ThemeOptions['typography'] = {
 
 const darkThemeOptions: ThemeOptions = {
   palette: {
-    type: 'dark',
+    mode: 'dark',
     ...palette
   },
   typography
@@ -61,7 +67,7 @@ const darkThemeOptions: ThemeOptions = {
 
 const lightThemeOptions: ThemeOptions = {
   palette: {
-    type: 'light',
+    mode: 'light',
     ...palette
   },
   typography
