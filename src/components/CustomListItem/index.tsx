@@ -1,5 +1,5 @@
-import { Link, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import Image from 'next/image'
+import { Link, ListItem, ListItemIcon, ListItemText } from '@mui/material'
+import Image, { StaticImageData } from 'next/image'
 
 import contact from '/public/icons/contact-icon.png'
 import home from '/public/icons/home-icon.png'

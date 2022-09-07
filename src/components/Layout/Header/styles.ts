@@ -1,65 +1,103 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 
 const Styles = makeStyles(theme => ({
-  drawerPaper: {
-    width: '100%',
-    height: '100%',
-    padding: theme.spacing(0, 2)
+  appBar: {
+    boxShadow: 'none',
+    color: 'transparent'
+  },
+  menuContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%'
   },
   topBarStyle: {
-    backgroundColor: theme.palette.primary.main,
-    padding: '0 !important',
-    minHeight: '0 !important'
+    backgroundColor: theme.palette.grey[600]
   },
-  topBarMobileStyle: {
-    [theme.breakpoints.down('md')]: {
-      backgroundColor: theme.palette.primary.main,
-      height: 60,
-      transition: 'height .6s ease-out'
+  topBarMenu: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: 25,
+    marginLeft: theme.spacing(2),
+    '& .text': {
+      fontSize: 20
     }
   },
-  hideTopBar: {
-    [theme.breakpoints.down('md')]: {
-      backgroundColor: theme.palette.primary.main,
-      height: 0,
-      transition: 'height .6s ease-out'
-    }
-  },
-  appBar: {
-    [theme.breakpoints.down('sm')]: {
-      boxShadow: 'none'
-    }
-  },
-  paddingHeader: {
-    marginLeft: theme.spacing(21),
-    marginRight: theme.spacing(21),
-    [theme.breakpoints.down('md')]: {
-      marginLeft: theme.spacing(3),
-      marginRight: theme.spacing(3)
-    }
-  },
-  logo: {
-    paddingTop: theme.spacing(1),
+  bottomBarStyle: {
+    minHeight: 57,
+    backgroundColor: theme.palette.grey[900],
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    textAlign: 'center',
+    padding: theme.spacing(0, 5),
+    alignItems: 'center',
     [theme.breakpoints.down('md')]: {
       display: 'none'
     }
   },
-  colorText: {
-    color: theme.palette.common.white
+  bottomBarMenu: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingLeft: theme.spacing(3),
+    gap: theme.spacing(4),
+    '& .text': {
+      fontSize: 16
+    }
+  },
+  bottomBarButtons: {
+    width: 190,
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  logo: {
+    padding: theme.spacing(1),
+    display: 'flex'
+  },
+  drawerPaper: {
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(1, 5)
+    }
+  },
+  drawerContainer: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    display: 'flex',
+    width: '100%',
+    height: 80,
+    justifyContent: 'space-between'
+  },
+  drawerShowMobile: {
+    display: 'none',
+    [theme.breakpoints.down('md')]: { display: 'contents' }
+  },
+  drawerShowDesktop: {
+    display: 'contents',
+    border: '2px solid black',
+    [theme.breakpoints.down('md')]: { display: 'none' }
+  },
+  drawer: {
+    '& .MuiDrawer-paper': {
+      backgroundColor: theme.palette.primary.main
+    }
   },
   drawerContent: {
     width: '65vw'
   },
-  btnDrawer: {
-    position: 'absolute',
-    right: theme.spacing(1)
+  logoDrawer: {
+    margin: theme.spacing(2, 0, 4, 0),
+    width: '70%',
+    paddingLeft: theme.spacing(1),
+    '& img': {
+      width: '162px !important',
+      height: '37px !important'
+    }
   },
   linkGruopBox: {
     margin: theme.spacing(2, 0)
-  },
-  logoBox: {
-    margin: theme.spacing(2, 0, 4, 0),
-    paddingLeft: theme.spacing(1)
   },
   linkGruopLabel: {
     margin: theme.spacing(0),
@@ -67,32 +105,65 @@ const Styles = makeStyles(theme => ({
     marginLeft: theme.spacing(3),
     color: theme.palette.common.white
   },
-  drawer: {
-    '& .MuiDrawer-paper': {
-      backgroundColor: theme.palette.primary.main
-    }
+  menuIconColor: {
+    color: theme.palette.common.white
+  },
+  buttonLogin: {
+    height: 30,
+    fontSize: 16,
+    color: theme.palette.text.primary
+  },
+  buttonSignUp: {
+    height: 30,
+    width: 110,
+    borderRadius: 10,
+    backgroundColor: theme.palette.primary.main,
+    fontSize: 16,
+    color: theme.palette.common.white,
+    fontWeight: 'bold'
+  },
+  linkColor: {
+    color: theme.palette.common.white
+  },
+  languageBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   langItemBox: {
-    padding: theme.spacing(0, 0.5)
+    padding: theme.spacing(0, 0.8)
   },
-  langItemActive: {
-    borderBottom: `solid 4px ${theme.palette.secondary.main}`,
-    cursor: 'pointer'
+  languageColor: {
+    color: theme.palette.common.white
   },
-  langItem: {
+  divider: {
+    borderLeft: `solid 2px ${theme.palette.common.white}`,
+    height: 20,
+    display: 'flex',
+    alignItems: 'center',
     cursor: 'pointer',
     '&:hover': {
       fontWeight: 'bold'
     }
   },
-  languageIndicator: {
-    color: theme.palette.common.white
+  selected: {
+    fontWeight: '600'
   },
-  padding: {
-    padding: theme.spacing(0.5, 1)
+  leftBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  menuIconColor: {
-    color: theme.palette.common.white
+  logoAppbar: {
+    display: 'flex',
+    '& img': {
+      width: '100px !important',
+      height: '35px !important'
+    }
+  },
+  logoAndMenu: {
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 }))
 
