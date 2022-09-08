@@ -164,13 +164,6 @@ const Styles = makeStyles(theme => ({
   logoAndMenu: {
     display: 'flex',
     justifyContent: 'space-between'
-  },
-  hideTopBar: {
-    [theme.breakpoints.down('md')]: {
-      backgroundColor: theme.palette.primary.main,
-      height: 0,
-      transition: 'height .6s ease-out'
-    }
   }
 }))
 
