@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useRef, useState } from 'react'
-
 import Header from './Header'
 import Container from './Container'
 import Footer from './Footer'
@@ -20,20 +17,9 @@ const Layout: React.FC<LayoutProps> = ({
   toggleThemeType
 }) => {
   const classes = useStyles()
-  const wrapper = useRef<HTMLInputElement>(null)
-  // WIP: header refactor
-  const [showNavbar, setShowNavbar] = useState(true)
-  const [lastScroll, setLastScroll] = useState(0)
-
-  const scrolling = () => {
-    const currentScroll = wrapper?.current?.scrollTop || 0
-
-    setShowNavbar(!!(currentScroll > lastScroll))
-    setLastScroll(currentScroll)
-  }
 
   return (
-    <div ref={wrapper} className={classes.wrapperClass} onScroll={scrolling}>
+    <div className={classes.wrapperClass}>
       <Header />
       <Container>{children}</Container>
       <Footer isDarkTheme={isDarkTheme} toggleThemeType={toggleThemeType} />
