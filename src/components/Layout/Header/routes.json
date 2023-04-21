@@ -1,9 +1,0 @@
-{
-  "mainRoutes": [
-    {
-      "id": 0,
-      "path": "/",
-      "name": "home"
-    }
-  ]
-}
