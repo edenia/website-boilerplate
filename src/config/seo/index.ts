@@ -1,10 +1,11 @@
 import { DefaultSeoProps } from 'next-seo'
-const title = 'Edenia website'
-const description = 'Edenia website.'
-const url = 'https://edenia.com'
+const title = 'Web Hosting Services in Costa Rica'
+const description =
+  'Costa Rica Servers provides reliable and affordable web hosting services in Costa Rica. Our services include shared hosting, VPS hosting, and dedicated servers.'
+const url = 'https://crservers.com'
 
 const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | Edenia',
+  titleTemplate: '%s',
   title,
   description,
   canonical: url,
@@ -14,7 +15,7 @@ const SEO: DefaultSeoProps = {
     url,
     title,
     description,
-    site_name: 'Edenia',
+    site_name: 'Costa Rica Servers',
     images: [
       {
         url: `${url}/images/preview-image.png`,
@@ -23,8 +24,8 @@ const SEO: DefaultSeoProps = {
     ]
   },
   twitter: {
-    handle: 'Edenia',
-    site: 'Edenia',
+    handle: 'CR Servers',
+    site: 'CR Servers',
     cardType: 'summary_large_image'
   }
 }
