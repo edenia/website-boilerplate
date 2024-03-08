@@ -13,7 +13,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
 import MainContent from './components/Content'
-import { languages } from 'app/i18n/settings'
 import useTranslation from 'app/i18n'
 import {
   seoConfig,
@@ -32,10 +31,6 @@ type LayoutProps = {
 interface Languages {
   en: string
   es: string
-}
-
-export async function generateStaticParams(): Promise<any> {
-  return languages.map(lng => ({ lng }))
 }
 
 export default function RootLayout({
