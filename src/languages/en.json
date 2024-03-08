@@ -1,0 +1,29 @@
+{
+  "Metadata": {
+    "notFound": {
+      "Title": "Page not found",
+      "Description": "We can't find the page you're searching for."
+    },
+    "/": {
+      "Title": "Website boilerplate - Title",
+      "Description": "Website boilerplate - Description"
+    }
+  },
+  "home": {
+    "title": "Log in",
+    "description": "Website boilerplate project"
+  },
+  "common": {
+    "404": {
+      "errorMessage1": "Oops! We can't find the page you're searching for.",
+      "errorMessage2": " Please check the URL or try another link.",
+      "contactMessage1": "BACK TO HOMEPAGE",
+      "contactMessage2": "NEED HELP? CONTACT US"
+    },
+    "contactUs": "Contact Us",
+    "footer": {
+      "copyright": "Website boilerplate - Sistemas Edenia Internacional S.A. | All rights reserved",
+      "callUs": "Call us directly:"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "Metadata": {
+    "notFound": {
+      "Title": "Página no encontrada",
+      "Description": "No podemos encontrar la página que está buscando."
+    },
+    "/es": {
+      "Title": "Website Proyecto Base - Titulo",
+      "Description": "Website Proyecto Base - Descripción"
+    }
+  },
+  "home": {
+    "title": "Log in",
+    "description": "Website proyecto base"
+  },
+  "common": {
+    "404": {
+      "errorMessage1": "¡Vaya! No podemos encontrar la página que está buscando.",
+      "errorMessage2": "Por favor, verifique la URL o intente con otro enlace.",
+      "contactMessage1": "VOLVER A LA PÁGINA DE INICIO",
+      "contactMessage2": "¿NECESITA AYUDA? CONTÁCTENOS"
+    },
+    "contactUs": "Contáctenos",
+    "footer": {
+      "copyright": "Website base - Sistemas Edenia Internacional S.A. | Reservados todos los derechos",
+      "callUs": "Llámenos directamente:"
+    }
+  }
+}

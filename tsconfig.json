@@ -14,12 +14,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "src",
+    "noImplicitAny": false,
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ]
+  },
+  "paths": {
+    "@/*": ["./src/*"]
+    // "contentlayer/generated": ["./.contentlayer/generated"]
   },
   "include": [
     "next-env.d.ts",
