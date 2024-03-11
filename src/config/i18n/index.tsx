@@ -4,7 +4,7 @@ import esLocale from 'date-fns/locale/es'
 export type Locale = 'en' | 'es'
 
 type DateFnsLocaleMap = {
-  [key in Locale]: globalThis.Locale | string
+  [key in Locale]: globalThis.Locale
 }
 
 const dateFnsLocaleMap: DateFnsLocaleMap = {

@@ -1,0 +1,87 @@
+.forOfor-content-container {
+  height: 100%;
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.forOfor-content-text-container {
+  padding: 0 120px;
+}
+
+.forOfor-content-text-container h1 {
+  color: #000;
+  font-size: 192px;
+  font-weight: bold;
+  line-height: 0;
+}
+
+.forOfor-content-text-container h2 {
+  color: #566172;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.forOfor-content-text-container p {
+  font-size: 24px;
+  color: #666666;
+}
+
+.forOfor-content-text-container a {
+  color: #000;
+}
+
+.forOfor-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.forOfor-secondary-button,
+.forOfor-primary-button {
+  background: #000;
+  border-radius: 100px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.forOfor-secondary-button {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.forOfor-primary-button:hover,
+.forOfor-secondary-button:hover {
+  filter: brightness(0.95);
+}
+
+@media only screen and (max-width: 1024px) {
+  body .grecaptcha-badge {
+    bottom: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body .grecaptcha-badge {
+    bottom: 74px !important;
+  }
+
+  .forOfor-content-text-container h1 {
+    font-size: 100px;
+  }
+
+  .forOfor-content-text-container {
+    padding: 0 30px;
+  }
+}
