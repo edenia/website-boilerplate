@@ -14,9 +14,11 @@ const Footer: React.FC<FooterProps> = () => {
 
   return (
     <footer>
-      <Typography className={classes.copyright}>
-        Copyright © {new Date().getFullYear()} {t('footer.copyright')}
-      </Typography>
+      <div className={classes.footerContainer}>
+        <Typography className={classes.copyright}>
+          Copyright © {new Date().getFullYear()} {t('footer.copyright')}
+        </Typography>
+      </div>
     </footer>
   )
 }

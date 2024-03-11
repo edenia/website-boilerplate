@@ -39,19 +39,6 @@ const Styles = makeStyles(theme => ({
       marginLeft: theme.spacing(9)
     }
   },
-  bottomBarStyle: {
-    minHeight: 52,
-    backgroundColor: theme.palette.grey[200],
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    textAlign: 'center',
-    padding: theme.spacing(0, 5),
-    alignItems: 'center',
-    [theme.breakpoints.down('md')]: {
-      display: 'none'
-    }
-  },
   bottomBarMenu: {
     display: 'flex',
     paddingLeft: theme.spacing(1),
@@ -88,9 +75,6 @@ const Styles = makeStyles(theme => ({
       alignItems: 'center'
     }
   },
-  containerSubMenuItems: {
-    width: '100%'
-  },
   bottomBarButtons: {
     width: 'auto',
     display: 'flex',
@@ -112,20 +96,6 @@ const Styles = makeStyles(theme => ({
     borderRight: '2px solid rgba(112, 112, 112, 0.2)',
     height: '24px',
     margin: theme.spacing(2)
-  },
-  triangle: {
-    width: 0,
-    height: 0,
-    position: 'absolute',
-    top: '108px',
-    right: theme.spacing(4),
-    borderRight: '12px solid transparent',
-    borderLeft: '12px solid transparent',
-    transform: 'translateX(-50%)',
-    borderBottom: `14px solid ${theme.palette.common.white}`,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
   }
 }))
 

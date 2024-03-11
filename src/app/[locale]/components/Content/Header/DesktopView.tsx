@@ -11,10 +11,9 @@ import useMenuStyles from './MenuStyles'
 type HeaderDesktopProps = {
   asPath: string
   getRouteRef?: (r: { id: number; path: string; name: string }) => string
-  lng: string
 }
 
-const HeaderDesktopView: React.FC<HeaderDesktopProps> = ({ asPath, lng }) => {
+const HeaderDesktopView: React.FC<HeaderDesktopProps> = ({ asPath }) => {
   const classes = useMenuStyles()
   const t = useTranslations('common')
 
@@ -45,7 +44,7 @@ const HeaderDesktopView: React.FC<HeaderDesktopProps> = ({ asPath, lng }) => {
             </Typography>
           </Link>
         </div>
-        <LanguageSelector lng={lng} />
+        <LanguageSelector />
       </div>
     </div>
   )

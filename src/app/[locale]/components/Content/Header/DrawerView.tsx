@@ -7,7 +7,6 @@ type DrawerContentProps = {
   isOpen: boolean
   handlerDrawer: () => void
   asPath: string
-  lng: string
 }
 
 const DrawerContent: React.FC<DrawerContentProps> = ({

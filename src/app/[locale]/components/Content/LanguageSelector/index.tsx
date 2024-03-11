@@ -1,123 +1,88 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { RefObject, useEffect, useRef, useState, memo } from 'react'
-import Link from 'next/link'
-import {
-  Button,
-  ClickAwayListener,
-  Grow,
-  MenuItem,
-  MenuList,
-  Paper,
-  Popper,
-  Typography
-} from '@mui/material'
+'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTransition, memo, useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Typography from '@mui/material/Typography'
+
+import { usePathname, useRouter } from 'navigation'
 import LanguageIcon from './LanguageIcon'
+
 import useStyles from './styles'
 
-const LanguageSelector = ({ lng }: { lng: string }): JSX.Element => {
+const LanguageSelector = () => {
   const t = useTranslations('common')
+  const locale = useLocale()
   const classes = useStyles()
-  const anchorRef = useRef<HTMLElement>(null)
-  const [open, setOpen] = useState(false)
-  const [width, setWidth] = useState(0)
+  const router = useRouter()
+  const pathname = usePathname()
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [, startTransition] = useTransition()
+  const open = Boolean(anchorEl)
 
-  useEffect(() => {
-    setWidth(window.innerWidth)
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  console.log(locale)
 
-    return () => {
-      window.removeEventListener('resize', () => setWidth(window.innerWidth))
-    }
-  }, [])
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = (lng: string | null) => {
+    if (!lng) {
+      setAnchorEl(null)
 
-  const handleClose = (event: any) => {
-    if (anchorRef.current && anchorRef.current?.contains(event.target)) {
       return
     }
 
-    setOpen(false)
+    startTransition(() => {
+      router.replace(pathname, { locale: lng })
+    })
   }
-
-  function handleListKeyDown(event: React.KeyboardEvent<HTMLUListElement>) {
-    if (event.key === 'Tab') {
-      event.preventDefault()
-      setOpen(false)
-    } else if (event.key === 'Escape') {
-      setOpen(false)
-    }
-  }
-
-  const handleToggle = () => {
-    setOpen(!open)
-  }
-
-  const prevOpen = useRef(open)
-  useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      if (anchorRef.current !== null) {
-        anchorRef.current.focus()
-      }
-    }
-
-    prevOpen.current = open
-  }, [open])
 
   return (
-    <>
+    <div>
       <div className={classes.button}>
         <Button
-          id={`composition-button-${Math.random()}`}
-          aria-controls={open ? 'composition-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
+          id='basic-button'
+          aria-controls={open ? 'basic-menu' : undefined}
           aria-haspopup='true'
-          onClick={handleToggle}
-          aria-label='composition-menu-btn'
-          ref={anchorRef as RefObject<HTMLButtonElement>}
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
         >
           <div className={classes.containerIcon}>
-            <LanguageIcon
-              width={width > 600 ? 30 : 24}
-              height={width > 600 ? 30 : 24}
-            />
+            <div className={classes.desktopContainer}>
+              <LanguageIcon width={24} height={24} />
+            </div>
+            <div className={classes.mobileContainer}>
+              <LanguageIcon width={32} height={32} />
+            </div>
           </div>
           <Typography variant='body1' className={classes.languageLabel}>
-            {t(lng)}
+            {locale}
           </Typography>
         </Button>
       </div>
-      <Popper
+      <Menu
+        id='basic-menu'
+        anchorEl={anchorEl}
         open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        placement='left'
-        transition
-        disablePortal
+        onClose={() => handleClose(null)}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button'
+        }}
       >
-        {({ TransitionProps }) => (
-          <Grow {...TransitionProps}>
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList
-                  autoFocusItem={open}
-                  id='composition-menu'
-                  aria-labelledby='composition-button'
-                  onKeyDown={event => handleListKeyDown(event)}
-                >
-                  <MenuItem id='language-en'>
-                    <Link href={'/en'}> EN</Link>
-                  </MenuItem>
-                  <MenuItem id='language-es'>
-                    <Link href={'/es'}> ES</Link>
-                  </MenuItem>
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
-    </>
+        {['en', 'es'].map(lng => (
+          <MenuItem
+            key={lng}
+            onClick={() => handleClose(lng)}
+            className={locale === lng ? classes.selectedOption : ''}
+          >
+            {t('locale', { locale: lng })}
+            <div className='underline' />
+          </MenuItem>
+        ))}
+      </Menu>
+    </div>
   )
 }
 

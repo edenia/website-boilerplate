@@ -108,7 +108,7 @@ export default function RootLayout({
           `
         }}
       />
-      {/* <DefaultSeo {...seoConfig} /> */}
+      <DefaultSeo {...seoConfig} />
       <head>
         <title>{metadata.title}</title>
         <meta name='description' content={metadata.description} />
@@ -164,7 +164,6 @@ export default function RootLayout({
                   <MainContent
                     isDarkTheme={isDarkTheme}
                     toggleThemeType={toggleThemeType}
-                    lng={locale}
                   >
                     {children}
                   </MainContent>

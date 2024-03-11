@@ -13,13 +13,9 @@ type HeaderMobileProps = {
   anchorEl: null | HTMLElement
   setAnchorEl(event: EventTarget & HTMLElement): void
   handlerDrawer: () => void
-  lng: string
 }
 
-const HeaderMobileView: React.FC<HeaderMobileProps> = ({
-  handlerDrawer,
-  lng
-}) => {
+const HeaderMobileView: React.FC<HeaderMobileProps> = ({ handlerDrawer }) => {
   const classes = useMenuStyles()
 
   return (
@@ -35,7 +31,7 @@ const HeaderMobileView: React.FC<HeaderMobileProps> = ({
       </Link>
       <div className={classes.leftBox}>
         <div className={classes.languageBox}>
-          <LanguageSelector lng={lng} />
+          <LanguageSelector />
         </div>
         <IconButton
           onClick={handlerDrawer}

@@ -14,6 +14,7 @@
     "description": "Website proyecto base"
   },
   "common": {
+    "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}",
     "404": {
       "errorMessage1": "¡Vaya! No podemos encontrar la página que está buscando.",
       "errorMessage2": "Por favor, verifique la URL o intente con otro enlace.",

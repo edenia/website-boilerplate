@@ -10,7 +10,6 @@ import useStyles from './styles'
 
 type HeaderProps = {
   open: boolean
-  lng: string
   onclick(): void
   setOpen(previousOpen: boolean): void
   anchorEl: null | HTMLElement
@@ -22,8 +21,7 @@ const Header: React.FC<HeaderProps> = ({
   setOpen,
   onclick,
   anchorEl,
-  setAnchorEl,
-  lng
+  setAnchorEl
 }) => {
   const classes = useStyles()
   const [isOpen, setIsOpen] = useState(false)
@@ -40,33 +38,21 @@ const Header: React.FC<HeaderProps> = ({
         onClick={onclick}
       >
         <div className={classes.menuContainer}>
-          <HeaderDesktopView asPath={pathname} lng={lng} />
+          <HeaderDesktopView asPath={pathname} />
           <HeaderMobileView
             open={open}
             setAnchorEl={setAnchorEl}
             setOpen={setOpen}
             anchorEl={anchorEl}
-            lng={lng}
             handlerDrawer={handlerDrawer}
           />
           <DrawerContent
             isOpen={isOpen}
             handlerDrawer={handlerDrawer}
             asPath={pathname}
-            lng={lng}
           />
         </div>
       </Toolbar>
-      <div className={classes.bottomBarStyle}>
-        <div
-          role='button'
-          tabIndex={0}
-          onClick={onclick}
-          onKeyDown={onclick}
-          className={classes.containerSubMenuItems}
-        ></div>
-        {open && <span className={classes.triangle} />}
-      </div>
     </AppBar>
   )
 }

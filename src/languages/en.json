@@ -14,6 +14,7 @@
     "description": "Website boilerplate project"
   },
   "common": {
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}",
     "404": {
       "errorMessage1": "Oops! We can't find the page you're searching for.",
       "errorMessage2": " Please check the URL or try another link.",
